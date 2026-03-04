@@ -1,0 +1,72 @@
+{
+  "home": {
+    "title": "La web molona de Raúl",
+    "subtitle": "Arquitectura y Diseño Excepcional"
+  },
+  "property": {
+    "backToGallery": "Volver a la galería",
+    "stayDetails": "Detalles de la Estancia",
+    "guests": "Huéspedes",
+    "bedrooms": "Habitaciones",
+    "baths": "Baños",
+    "aboutSpace": "Sobre el espacio",
+    "selectDates": "Seleccionar Fechas",
+    "confirmReservation": "Confirmar Reserva",
+    "nights": "noches",
+    "night": "noche",
+    "total": "TOTAL",
+    "perNight": "/ noche"
+  },
+  "calendar": {
+    "selectedPeriod": "Periodo Seleccionado",
+    "nights": "noches",
+    "night": "noche",
+    "perNight": "por noche",
+    "totalPrice": "Precio Total",
+    "confirmReservation": "Confirmar Reserva",
+    "processing": "Procesando...",
+    "confirmed": "¡Confirmado!"
+  },
+  "checkin": {
+    "title": "Registro de Entrada",
+    "subtitle": "Complete el formulario para todos los huéspedes",
+    "backToGallery": "Volver a la Galería",
+    "propertyId": "ID de Propiedad",
+    "officialRegistration": "Registro Oficial",
+    "checkInOnline": "Check-in Online",
+    "legalNotice": "Según la ley española (RD 933/2021), necesitamos registrar a todos los huéspedes que se alojen en nuestras propiedades.",
+    "newGuest": "Nuevo Huésped",
+    "haveRegId": "Tengo un ID de Registro",
+    "welcomeBack": "Bienvenido de nuevo",
+    "enterRegId": "Introduce tu ID de Registro para recuperar tus datos.",
+    "registrationId": "ID de Registro",
+    "regIdPlaceholder": "ej. REG-2026-XXXX",
+    "autoFillConfirm": "Autocompletar y Confirmar",
+    "leadGuest": "(Huésped Principal)",
+    "propertyInfo": "Información de la Propiedad",
+    "checkInDate": "Fecha de Entrada",
+    "checkOutDate": "Fecha de Salida",
+    "nights": "noches",
+    "totalPrice": "Precio Total",
+    "guestInfo": "Información del Huésped",
+    "guest": "Huésped",
+    "firstName": "Nombre",
+    "lastName": "Apellidos",
+    "idType": "Tipo de Documento",
+    "idNumber": "Número de Documento",
+    "issueDate": "Fecha de Expedición",
+    "birthDate": "Fecha de Nacimiento",
+    "nationality": "Nacionalidad",
+    "email": "Correo Electrónico",
+    "saveForFuture": "Guardar datos para futuras estancias",
+    "addGuest": "Añadir Huésped",
+    "removeGuest": "Eliminar Huésped",
+    "submitRegistration": "Enviar Registro",
+    "idTypes": {
+      "passport": "Pasaporte",
+      "dni": "DNI",
+      "nie": "NIE",
+      "drivingLicense": "Carnet de Conducir"
+    }
+  }
+}

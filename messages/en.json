@@ -1,0 +1,72 @@
+{
+  "home": {
+    "title": "Curated Stays",
+    "subtitle": "Exceptional Architecture & Design"
+  },
+  "property": {
+    "backToGallery": "Back to gallery",
+    "stayDetails": "Stay Details",
+    "guests": "Guests",
+    "bedrooms": "Bedrooms",
+    "baths": "Baths",
+    "aboutSpace": "About the space",
+    "selectDates": "Select Dates",
+    "confirmReservation": "Confirm Reservation",
+    "nights": "nights",
+    "night": "night",
+    "total": "TOTAL",
+    "perNight": "/ night"
+  },
+  "calendar": {
+    "selectedPeriod": "Selected Period",
+    "nights": "nights",
+    "night": "night",
+    "perNight": "per night",
+    "totalPrice": "Total Price",
+    "confirmReservation": "Confirm Reservation",
+    "processing": "Processing...",
+    "confirmed": "Confirmed!"
+  },
+  "checkin": {
+    "title": "Check-in Registration",
+    "subtitle": "Complete the form for all guests",
+    "backToGallery": "Back to Gallery",
+    "propertyId": "Property ID",
+    "officialRegistration": "Official Registration",
+    "checkInOnline": "Check-in Online",
+    "legalNotice": "According to Spanish law (RD 933/2021), we need to register all guests staying at our properties.",
+    "newGuest": "New Guest",
+    "haveRegId": "I have a Reg ID",
+    "welcomeBack": "Welcome back",
+    "enterRegId": "Enter your Registration ID to retrieve your data.",
+    "registrationId": "Registration ID",
+    "regIdPlaceholder": "e.g. REG-2026-XXXX",
+    "autoFillConfirm": "Auto-fill & Confirm",
+    "leadGuest": "(Lead Guest)",
+    "propertyInfo": "Property Information",
+    "checkInDate": "Check-in Date",
+    "checkOutDate": "Check-out Date",
+    "nights": "nights",
+    "totalPrice": "Total Price",
+    "guestInfo": "Guest Information",
+    "guest": "Guest",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "idType": "ID Type",
+    "idNumber": "ID Number",
+    "issueDate": "Issue Date",
+    "birthDate": "Birth Date",
+    "nationality": "Nationality",
+    "email": "Email",
+    "saveForFuture": "Save data for future stays",
+    "addGuest": "Add Guest",
+    "removeGuest": "Remove Guest",
+    "submitRegistration": "Submit Registration",
+    "idTypes": {
+      "passport": "Passport",
+      "dni": "National ID",
+      "nie": "Foreign ID",
+      "drivingLicense": "Driving License"
+    }
+  }
+}

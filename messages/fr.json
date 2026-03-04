@@ -1,0 +1,72 @@
+{
+  "home": {
+    "title": "Séjours Sélectionnés",
+    "subtitle": "Architecture & Design Exceptionnels"
+  },
+  "property": {
+    "backToGallery": "Retour à la galerie",
+    "stayDetails": "Détails du Séjour",
+    "guests": "Invités",
+    "bedrooms": "Chambres",
+    "baths": "Salles de bain",
+    "aboutSpace": "À propos de l'espace",
+    "selectDates": "Sélectionner les dates",
+    "confirmReservation": "Confirmer la réservation",
+    "nights": "nuits",
+    "night": "nuit",
+    "total": "TOTAL",
+    "perNight": "/ nuit"
+  },
+  "calendar": {
+    "selectedPeriod": "Période Sélectionnée",
+    "nights": "nuits",
+    "night": "nuit",
+    "perNight": "par nuit",
+    "totalPrice": "Prix Total",
+    "confirmReservation": "Confirmer la Réservation",
+    "processing": "Traitement en cours...",
+    "confirmed": "Confirmé !"
+  },
+  "checkin": {
+    "title": "Enregistrement d'arrivée",
+    "subtitle": "Remplissez le formulaire pour tous les invités",
+    "backToGallery": "Retour à la galerie",
+    "propertyId": "ID de propriété",
+    "officialRegistration": "Enregistrement Officiel",
+    "checkInOnline": "Enregistrement en ligne",
+    "legalNotice": "Selon la loi espagnole (RD 933/2021), nous devons enregistrer tous les invités séjournant dans nos propriétés.",
+    "newGuest": "Nouvel Invité",
+    "haveRegId": "J'ai un ID d'enregistrement",
+    "welcomeBack": "Bon retour",
+    "enterRegId": "Entrez votre ID d'enregistrement pour récupérer vos données.",
+    "registrationId": "ID d'enregistrement",
+    "regIdPlaceholder": "ex. REG-2026-XXXX",
+    "autoFillConfirm": "Remplir automatiquement & Confirmer",
+    "leadGuest": "(Invité Principal)",
+    "propertyInfo": "Informations sur la propriété",
+    "checkInDate": "Date d'arrivée",
+    "checkOutDate": "Date de départ",
+    "nights": "nuits",
+    "totalPrice": "Prix total",
+    "guestInfo": "Informations sur l'invité",
+    "guest": "Invité",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "idType": "Type de pièce d'identité",
+    "idNumber": "Numéro de pièce d'identité",
+    "issueDate": "Date de délivrance",
+    "birthDate": "Date de naissance",
+    "nationality": "Nationalité",
+    "email": "Email",
+    "saveForFuture": "Enregistrer les données pour les séjours futurs",
+    "addGuest": "Ajouter un invité",
+    "removeGuest": "Retirer un invité",
+    "submitRegistration": "Soumettre l'enregistrement",
+    "idTypes": {
+      "passport": "Passeport",
+      "dni": "Carte d'identité nationale",
+      "nie": "Carte d'identité étrangère",
+      "drivingLicense": "Permis de conduire"
+    }
+  }
+}

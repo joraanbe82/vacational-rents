@@ -1,0 +1,72 @@
+{
+  "home": {
+    "title": "Kuratierte Aufenthalte",
+    "subtitle": "Außergewöhnliche Architektur & Design"
+  },
+  "property": {
+    "backToGallery": "Zurück zur Galerie",
+    "stayDetails": "Aufenthaltsdetails",
+    "guests": "Gäste",
+    "bedrooms": "Schlafzimmer",
+    "baths": "Bäder",
+    "aboutSpace": "Über den Raum",
+    "selectDates": "Daten auswählen",
+    "confirmReservation": "Reservierung bestätigen",
+    "nights": "Nächte",
+    "night": "Nacht",
+    "total": "GESAMT",
+    "perNight": "/ Nacht"
+  },
+  "calendar": {
+    "selectedPeriod": "Ausgewählter Zeitraum",
+    "nights": "Nächte",
+    "night": "Nacht",
+    "perNight": "pro Nacht",
+    "totalPrice": "Gesamtpreis",
+    "confirmReservation": "Reservierung Bestätigen",
+    "processing": "Wird bearbeitet...",
+    "confirmed": "Bestätigt!"
+  },
+  "checkin": {
+    "title": "Check-in Registrierung",
+    "subtitle": "Füllen Sie das Formular für alle Gäste aus",
+    "backToGallery": "Zurück zur Galerie",
+    "propertyId": "Objekt-ID",
+    "officialRegistration": "Offizielle Registrierung",
+    "checkInOnline": "Online Check-in",
+    "legalNotice": "Nach spanischem Recht (RD 933/2021) müssen wir alle Gäste registrieren, die in unseren Unterkünften übernachten.",
+    "newGuest": "Neuer Gast",
+    "haveRegId": "Ich habe eine Reg-ID",
+    "welcomeBack": "Willkommen zurück",
+    "enterRegId": "Geben Sie Ihre Registrierungs-ID ein, um Ihre Daten abzurufen.",
+    "registrationId": "Registrierungs-ID",
+    "regIdPlaceholder": "z.B. REG-2026-XXXX",
+    "autoFillConfirm": "Automatisch ausfüllen & Bestätigen",
+    "leadGuest": "(Hauptgast)",
+    "propertyInfo": "Objektinformationen",
+    "checkInDate": "Check-in Datum",
+    "checkOutDate": "Check-out Datum",
+    "nights": "Nächte",
+    "totalPrice": "Gesamtpreis",
+    "guestInfo": "Gästeinformationen",
+    "guest": "Gast",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "idType": "Ausweistyp",
+    "idNumber": "Ausweisnummer",
+    "issueDate": "Ausstellungsdatum",
+    "birthDate": "Geburtsdatum",
+    "nationality": "Nationalität",
+    "email": "E-Mail",
+    "saveForFuture": "Daten für zukünftige Aufenthalte speichern",
+    "addGuest": "Gast hinzufügen",
+    "removeGuest": "Gast entfernen",
+    "submitRegistration": "Registrierung absenden",
+    "idTypes": {
+      "passport": "Reisepass",
+      "dni": "Personalausweis",
+      "nie": "Ausländerausweis",
+      "drivingLicense": "Führerschein"
+    }
+  }
+}

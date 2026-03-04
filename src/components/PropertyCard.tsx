@@ -5,37 +5,15 @@ import useEmblaCarousel from 'embla-carousel-react'
 import WheelGesturesPlugin from 'embla-carousel-wheel-gestures'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useLocale } from 'next-intl'
+import { CAROUSEL_TWEEN_FACTOR, CAROUSEL_MIN_SCALE, CAROUSEL_MAX_SCALE, CAROUSEL_SLIDE_WIDTH_PERCENT, PROPERTY_IMAGE_WIDTH, PROPERTY_IMAGE_HEIGHT } from '@/lib/constants'
+import { PropertyProps } from '@/types/property.types'
+import { EmblaApiType, EmblaEngine } from '@/types/embla.types'
 
-interface PropertyProps {
-  id: string;
-  title: string;
-  images: string[];
-}
-
-interface EmblaApiType {
-  slideNodes(): HTMLElement[];
-  internalEngine(): EmblaEngine;
-  scrollProgress(): number;
-  scrollSnapList(): number[];
-  slidesInView(): number[];
-  on(event: string, callback: (api: EmblaApiType) => void): void;
-}
-
-interface EmblaEngine {
-  options: {
-    loop: boolean;
-  };
-  slideLooper: {
-    loopPoints: Array<{
-      index: number;
-      target: () => number;
-    }>;
-  };
-}
-
-const TWEEN_FACTOR = 1.2;
 
 export default function PropertyCard({ id, title, images }: PropertyProps) {
+  const locale = useLocale();
+  
   // Configuración con el plugin de rueda incluido
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
@@ -73,8 +51,8 @@ export default function PropertyCard({ id, title, images }: PropertyProps) {
         })
       }
 
-      const tweenValue = 1 - Math.abs(diffToTarget * TWEEN_FACTOR)
-      const scale = Math.max(0.8, Math.min(1, tweenValue)).toString()
+      const tweenValue = 1 - Math.abs(diffToTarget * CAROUSEL_TWEEN_FACTOR)
+      const scale = Math.max(CAROUSEL_MIN_SCALE, Math.min(CAROUSEL_MAX_SCALE, tweenValue)).toString()
       const slide = tweenNodes.current[index]
       
       if (slide) {
@@ -107,17 +85,17 @@ export default function PropertyCard({ id, title, images }: PropertyProps) {
           {images.map((url, index) => (
             <div 
               key={index} 
-              className="flex-[0_0_60%] min-w-0"
+              className={`flex-[0_0_${CAROUSEL_SLIDE_WIDTH_PERCENT}] min-w-0`}
             >
-              <Link href={`/property/${id}`} className="block">
+              <Link href={`/${locale}/property/${id}`} className="block">
                 <div className="slide-inner origin-center transition-transform duration-200 ease-out cursor-pointer">
                   <Image
                     src={url} 
                     alt={title}
                     className="w-full aspect-[4/3] object-cover rounded-[2.5rem] select-none pointer-events-none shadow-sm"
                     draggable="false"
-                    width={800}
-                    height={600}
+                    width={PROPERTY_IMAGE_WIDTH}
+                    height={PROPERTY_IMAGE_HEIGHT}
                   />
                 </div>
               </Link>
