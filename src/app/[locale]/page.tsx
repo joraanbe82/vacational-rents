@@ -2,6 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import PropertyCard from "@/components/PropertyCard";
 import { RENTAL_PROPERTIES } from "@/lib/data";
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import BackgroundLayer from '@/components/BackgroundLayer';
+import { ANIMATION_STAGGER_DELAY } from '@/lib/constants';
 
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -9,7 +11,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const t = await getTranslations({ locale, namespace: 'home' });
   
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen bg-transparent text-gray-900 relative">
+      <BackgroundLayer />
       <header className="py-20 px-6 text-center mb-8 relative">
         <div className="absolute top-8 right-8">
           <LanguageSwitcher />
@@ -23,13 +26,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </header>
 
       <div className="max-w-4xl mx-auto px-4 pb-32 space-y-32">
-        {RENTAL_PROPERTIES.map((property) => (
-          <PropertyCard
+        {RENTAL_PROPERTIES.map((property, index) => (
+          <div
             key={property.id}
-            title={property.title}
-            images={property.images}
-            id={property.id}
-          />
+            style={{ animationDelay: `${index * ANIMATION_STAGGER_DELAY}ms` }}
+          >
+            <PropertyCard
+              title={property.title}
+              images={property.images}
+              id={property.id}
+            />
+          </div>
         ))}
       </div>
     </main>

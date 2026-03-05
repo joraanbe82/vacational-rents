@@ -4,7 +4,13 @@ export interface EmblaApiType {
   scrollProgress(): number;
   scrollSnapList(): number[];
   slidesInView(): number[];
-  on(event: string, callback: (api: EmblaApiType) => void): void;
+  selectedScrollSnap(): number;
+  canScrollPrev(): boolean;
+  canScrollNext(): boolean;
+  scrollPrev(): void;
+  scrollNext(): void;
+  scrollTo(index: number): void;
+  on(event: string, callback: (api: EmblaApiType) => void): EmblaApiType;
 }
 
 export interface EmblaEngine {
