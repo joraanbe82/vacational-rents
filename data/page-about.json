@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Tu partner de confianza para alquileres vacacionales en la Costa del Sol",
+    "image": "/images/hero-placeholder.jpg"
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "Nuestra Historia",
+      "description": "Desde 2015, nos dedicamos a ofrecer las mejores propiedades vacacionales en la Costa del Sol. Con más de 50 viviendas en nuestra cartera, ayudamos a miles de familias cada año a encontrar su hogar perfecto para unas vacaciones inolvidables.",
+      "image": "",
+      "imagePosition": "left"
+    },
+    {
+      "id": "section-2",
+      "title": "Nuestro Compromiso",
+      "description": "Nos comprometemos a ofrecer un servicio excepcional, propiedades de alta calidad y una experiencia sin preocupaciones. Cada vivienda es cuidadosamente seleccionada y verificada para garantizar tu satisfacción.",
+      "image": "",
+      "imagePosition": "right"
+    },
+    {
+      "id": "section-3",
+      "title": "Equipo Local",
+      "description": "Nuestro equipo local conoce la Costa del Sol como la palma de su mano. Estamos disponibles 24/7 para ayudarte con cualquier necesidad durante tu estancia, desde recomendaciones hasta asistencia inmediata.",
+      "image": "",
+      "imagePosition": "left"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-1",
+      "title": "Atención 24/7",
+      "description": "Equipo disponible en todo momento para resolver cualquier incidencia o duda durante tu estancia.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-2",
+      "title": "Propiedades Verificadas",
+      "description": "Todas nuestras viviendas pasan un riguroso proceso de selección y verificación de calidad.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-3",
+      "title": "Experiencia Local",
+      "description": "Conocemos cada rincón de la Costa del Sol y te ayudamos a descubrir los mejores lugares.",
+      "image": "",
+      "link": ""
+    }
+  ],
+  "contact": {
+    "enabled": false,
+    "email": "",
+    "phone": "",
+    "formTitle": "",
+    "formDescription": ""
+  },
+  "seo": {
+    "metaTitle": "Sobre Nosotros - Vacational Rents Costa del Sol",
+    "metaDescription": "Conoce a Vacational Rents, tu partner de confianza para alquileres vacacionales en la Costa del Sol desde 2015."
+  }
+}

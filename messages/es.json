@@ -3,6 +3,38 @@
     "title": "La web molona de Raúl",
     "subtitle": "Arquitectura y Diseño Excepcional"
   },
+  "navbar": {
+    "home": "Inicio",
+    "guides": "Guías",
+    "dayTrips": "Excursiones",
+    "about": "Sobre Nosotros",
+    "homeOwner": "Propietarios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Encuentra tu hogar perfecto en la Costa del Sol",
+    "subtitle": "Alquila o compra tu propiedad ideal"
+  },
+  "footer": {
+    "navigation": "Navegación",
+    "contact": "Contacto",
+    "email": "Email",
+    "phone": "Teléfono",
+    "address": "Dirección",
+    "copyright": "Todos los derechos reservados",
+    "marbella": "Marbella, Costa del Sol, España"
+  },
+  "search": {
+    "rent": "Alquilar",
+    "buy": "Comprar",
+    "destination": "Destino o zona",
+    "checkIn": "Fecha de entrada",
+    "checkOut": "Fecha de salida",
+    "guests": "Huéspedes",
+    "search": "Buscar",
+    "guestCount": "{count} huésped",
+    "guestCount_plural": "{count} huéspedes"
+  },
   "property": {
     "backToGallery": "Volver a la galería",
     "stayDetails": "Detalles de la Estancia",
@@ -26,6 +58,25 @@
     "confirmReservation": "Confirmar Reserva",
     "processing": "Procesando...",
     "confirmed": "¡Confirmado!"
+  },
+  "booking": {
+    "requestBooking": "Solicitar Reserva",
+    "requestBookingSubtitle": "Para confirmar tu reserva necesitamos verificar la disponibilidad. Introduce tus datos de contacto y nuestro equipo te confirmará la reserva en menos de 24 horas.",
+    "propertyName": "Vivienda",
+    "checkInDate": "Entrada",
+    "checkOutDate": "Salida",
+    "nights": "Noches",
+    "emailLabel": "Email",
+    "phoneLabel": "Teléfono",
+    "cancel": "Cancelar",
+    "sendRequest": "Enviar Solicitud",
+    "sending": "Enviando...",
+    "requestSent": "¡Solicitud enviada!",
+    "requestSentMessage": "Te contactaremos en menos de 24 horas en el email proporcionado para confirmar tu reserva.",
+    "close": "Cerrar",
+    "errorMessage": "Error al enviar la solicitud. Por favor, inténtalo de nuevo.",
+    "emailError": "Introduce un email válido (ej: nombre@dominio.com)",
+    "phoneError": "Introduce un teléfono válido (ej: +34 600 000 000)"
   },
   "checkin": {
     "title": "Registro de Entrada",
@@ -58,6 +109,15 @@
     "birthDate": "Fecha de Nacimiento",
     "nationality": "Nacionalidad",
     "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "phonePlaceholder": "+34 600 000 000",
+    "addressSection": "Dirección del viajero",
+    "addAddress": "Añadir dirección",
+    "street": "Dirección",
+    "addressExtra": "Información adicional (piso, bloque, puerta...)",
+    "country": "País",
+    "city": "Localidad",
+    "postalCode": "Código postal",
     "saveForFuture": "Guardar datos para futuras estancias",
     "addGuest": "Añadir Huésped",
     "removeGuest": "Eliminar Huésped",
@@ -68,5 +128,9 @@
       "nie": "NIE",
       "drivingLicense": "Carnet de Conducir"
     }
+  },
+  "notFound": {
+    "message": "Página no encontrada",
+    "backToHome": "Volver al inicio"
   }
 }

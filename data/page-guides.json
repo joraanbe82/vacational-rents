@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "Guías de la Costa del Sol",
+    "subtitle": "Descubre los mejores lugares, restaurantes y experiencias de Málaga y la Costa del Sol",
+    "image": "/images/hero-placeholder.jpg"
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "Explora Marbella",
+      "description": "Marbella combina lujo, historia y playas de ensueño. Pasea por su casco antiguo, visita Puerto Banús y disfruta de la gastronomía mediterránea en sus chiringuitos de playa.",
+      "image": "",
+      "imagePosition": "left"
+    },
+    {
+      "id": "section-2",
+      "title": "Málaga Capital",
+      "description": "La vibrante capital de la Costa del Sol te espera con museos de clase mundial como el Picasso, el Centre Pompidou y la Alcazaba. No te pierdas el mercado de Atarazanas y sus tapas tradicionales.",
+      "image": "",
+      "imagePosition": "right"
+    },
+    {
+      "id": "section-3",
+      "title": "Pueblos Blancos",
+      "description": "Descubre la autenticidad de Andalucía en pueblos como Mijas, Frigiliana y Ronda. Calles empedradas, casas encaladas y vistas espectaculares te esperan en cada rincón.",
+      "image": "",
+      "imagePosition": "left"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-1",
+      "title": "Mejores Playas",
+      "description": "Guía completa de las playas más hermosas de la Costa del Sol, desde calas escondidas hasta playas urbanas con todos los servicios.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-2",
+      "title": "Restaurantes Recomendados",
+      "description": "Selección de los mejores restaurantes de la zona, desde chiringuitos tradicionales hasta restaurantes con estrella Michelin.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-3",
+      "title": "Rutas de Senderismo",
+      "description": "Explora la naturaleza de la Costa del Sol con nuestras rutas de senderismo recomendadas para todos los niveles.",
+      "image": "",
+      "link": ""
+    }
+  ],
+  "contact": {
+    "enabled": false,
+    "email": "",
+    "phone": "",
+    "formTitle": "",
+    "formDescription": ""
+  },
+  "seo": {
+    "metaTitle": "Guías de la Costa del Sol - Vacational Rents",
+    "metaDescription": "Descubre los mejores lugares, restaurantes y experiencias de Málaga y la Costa del Sol con nuestras guías completas."
+  }
+}

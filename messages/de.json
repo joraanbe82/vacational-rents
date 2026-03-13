@@ -3,6 +3,38 @@
     "title": "Kuratierte Aufenthalte",
     "subtitle": "Außergewöhnliche Architektur & Design"
   },
+  "navbar": {
+    "home": "Startseite",
+    "guides": "Reiseführer",
+    "dayTrips": "Tagesausflüge",
+    "about": "Über uns",
+    "homeOwner": "Eigentümer",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Finden Sie Ihr perfektes Zuhause an der Costa del Sol",
+    "subtitle": "Mieten oder kaufen Sie Ihre ideale Immobilie"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Kontakt",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "copyright": "Alle Rechte vorbehalten",
+    "marbella": "Marbella, Costa del Sol, Spanien"
+  },
+  "search": {
+    "rent": "Mieten",
+    "buy": "Kaufen",
+    "destination": "Ziel oder Gebiet",
+    "checkIn": "Anreisedatum",
+    "checkOut": "Abreisedatum",
+    "guests": "Gäste",
+    "search": "Suchen",
+    "guestCount": "{count} Gast",
+    "guestCount_plural": "{count} Gäste"
+  },
   "property": {
     "backToGallery": "Zurück zur Galerie",
     "stayDetails": "Aufenthaltsdetails",
@@ -23,9 +55,28 @@
     "night": "Nacht",
     "perNight": "pro Nacht",
     "totalPrice": "Gesamtpreis",
-    "confirmReservation": "Reservierung Bestätigen",
-    "processing": "Wird bearbeitet...",
+    "confirmReservation": "Reservierung bestätigen",
+    "processing": "Wird verarbeitet...",
     "confirmed": "Bestätigt!"
+  },
+  "booking": {
+    "requestBooking": "Reservierung anfragen",
+    "requestBookingSubtitle": "Um Ihre Reservierung zu bestätigen, müssen wir die Verfügbarkeit prüfen. Geben Sie Ihre Kontaktdaten ein und unser Team wird Ihre Buchung innerhalb von 24 Stunden bestätigen.",
+    "propertyName": "Unterkunft",
+    "checkInDate": "Anreise",
+    "checkOutDate": "Abreise",
+    "nights": "Nächte",
+    "emailLabel": "E-Mail",
+    "phoneLabel": "Telefon",
+    "cancel": "Abbrechen",
+    "sendRequest": "Anfrage senden",
+    "sending": "Wird gesendet...",
+    "requestSent": "Anfrage gesendet!",
+    "requestSentMessage": "Wir werden Sie innerhalb von 24 Stunden unter der angegebenen E-Mail-Adresse kontaktieren, um Ihre Reservierung zu bestätigen.",
+    "close": "Schließen",
+    "errorMessage": "Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut.",
+    "emailError": "Gültige E-Mail eingeben (z.B. name@domain.de)",
+    "phoneError": "Gültige Telefonnummer (z.B. +49 1500 0000000)"
   },
   "checkin": {
     "title": "Check-in Registrierung",
@@ -58,6 +109,15 @@
     "birthDate": "Geburtsdatum",
     "nationality": "Nationalität",
     "email": "E-Mail",
+    "phone": "Telefon",
+    "phonePlaceholder": "+49 1500 0000000",
+    "addressSection": "Adresse des Reisenden",
+    "addAddress": "Adresse hinzufügen",
+    "street": "Straße",
+    "addressExtra": "Zusatzinfo (Etage, Block, Tür...)",
+    "country": "Land",
+    "city": "Stadt",
+    "postalCode": "Postleitzahl",
     "saveForFuture": "Daten für zukünftige Aufenthalte speichern",
     "addGuest": "Gast hinzufügen",
     "removeGuest": "Gast entfernen",
@@ -68,5 +128,9 @@
       "nie": "Ausländerausweis",
       "drivingLicense": "Führerschein"
     }
+  },
+  "notFound": {
+    "message": "Seite nicht gefunden",
+    "backToHome": "Zurück zur Startseite"
   }
 }

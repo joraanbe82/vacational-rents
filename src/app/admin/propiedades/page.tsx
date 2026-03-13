@@ -1,14 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { RENTAL_PROPERTIES } from '@/lib/data'
 import { Plus, Edit2, Trash2, Eye, EyeOff } from 'lucide-react'
-import { ADMIN_TEXTAREA_MIN_HEIGHT, ADMIN_DEFAULT_GUESTS, ADMIN_DEFAULT_BEDROOMS, ADMIN_DEFAULT_BATHROOMS } from '@/lib/constants'
+import { ADMIN_TEXTAREA_MIN_HEIGHT, ADMIN_DEFAULT_GUESTS, ADMIN_DEFAULT_BEDROOMS, ADMIN_DEFAULT_BATHROOMS, TEXT_PRIMARY, TEXT_SECONDARY } from '@/lib/constants'
 import { PropertyWithVisibility } from '@/types/admin.types'
+import ImageUploader from '@/components/admin/ImageUploader'
+import { ImagePreview } from '@/types/ImageFile.types'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Municipality, MunicipalityResponse } from '@/types/api.types'
 
 export default function PropiedadesPage() {
   const [properties, setProperties] = useState<PropertyWithVisibility[]>(
@@ -24,6 +28,25 @@ export default function PropiedadesPage() {
     bedrooms: ADMIN_DEFAULT_BEDROOMS,
     bathrooms: ADMIN_DEFAULT_BATHROOMS,
   })
+  const [newPropertyImages, setNewPropertyImages] = useState<ImagePreview[]>([])
+  const [municipalities, setMunicipalities] = useState<Municipality[]>([])
+
+  useEffect(() => {
+    const loadMunicipalities = async () => {
+      try {
+        const res = await fetch('/api/municipalities')
+        const data: MunicipalityResponse = await res.json()
+        
+        if (data.success && Array.isArray(data.data)) {
+          setMunicipalities(data.data)
+        }
+      } catch {
+        // Silently fail
+      }
+    }
+
+    loadMunicipalities()
+  }, [])
 
   const handleAddProperty = () => {
     if (!newProperty.title.trim()) return
@@ -39,7 +62,7 @@ export default function PropiedadesPage() {
         bedrooms: newProperty.bedrooms, 
         bathrooms: newProperty.bathrooms 
       },
-      images: [],
+      images: newPropertyImages.map(img => img.url),
       visible: true,
     }
 
@@ -53,6 +76,7 @@ export default function PropiedadesPage() {
       bedrooms: ADMIN_DEFAULT_BEDROOMS,
       bathrooms: ADMIN_DEFAULT_BATHROOMS,
     })
+    setNewPropertyImages([])
     setShowAddForm(false)
   }
 
@@ -71,8 +95,8 @@ export default function PropiedadesPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-slate-900">Gestión de Propiedades</h1>
-        <p className="text-slate-600 mt-2">Administra todas tus propiedades de alquiler</p>
+        <h1 className="text-3xl font-bold text-deep-espresso">Gestión de Propiedades</h1>
+        <p className="text-dusty-cocoa mt-2">Administra todas tus propiedades de alquiler</p>
       </div>
 
       <Card>
@@ -92,7 +116,7 @@ export default function PropiedadesPage() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
-                  <label className="text-sm font-medium text-slate-700">Título</label>
+                  <label className="text-sm font-medium text-deep-espresso">Título</label>
                   <Input
                     placeholder="Nombre de la propiedad"
                     value={newProperty.title}
@@ -101,16 +125,26 @@ export default function PropiedadesPage() {
                 </div>
                 
                 <div className="col-span-2">
-                  <label className="text-sm font-medium text-slate-700">Ubicación</label>
-                  <Input
-                    placeholder="Ciudad, País"
+                  <label className="text-sm font-medium text-deep-espresso">Municipio</label>
+                  <Select
                     value={newProperty.location}
-                    onChange={(e) => setNewProperty({ ...newProperty, location: e.target.value })}
-                  />
+                    onValueChange={(value) => setNewProperty({ ...newProperty, location: value })}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecciona un municipio" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {municipalities.map((municipality) => (
+                        <SelectItem key={municipality.id} value={municipality.name}>
+                          {municipality.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-slate-700">Precio por noche ($)</label>
+                  <label className="text-sm font-medium text-deep-espresso">Precio por noche (€)</label>
                   <Input
                     type="number"
                     placeholder="0"
@@ -120,7 +154,7 @@ export default function PropiedadesPage() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-slate-700">Huéspedes</label>
+                  <label className="text-sm font-medium text-deep-espresso">Huéspedes</label>
                   <Input
                     type="number"
                     min="1"
@@ -130,7 +164,7 @@ export default function PropiedadesPage() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-slate-700">Habitaciones</label>
+                  <label className="text-sm font-medium text-deep-espresso">Habitaciones</label>
                   <Input
                     type="number"
                     min="1"
@@ -140,7 +174,7 @@ export default function PropiedadesPage() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-slate-700">Baños</label>
+                  <label className="text-sm font-medium text-deep-espresso">Baños</label>
                   <Input
                     type="number"
                     min="1"
@@ -150,12 +184,21 @@ export default function PropiedadesPage() {
                 </div>
 
                 <div className="col-span-2">
-                  <label className="text-sm font-medium text-slate-700">Descripción</label>
+                  <label className="text-sm font-medium text-deep-espresso">Descripción</label>
                   <textarea
-                    className={`w-full min-h-[${ADMIN_TEXTAREA_MIN_HEIGHT}px] px-3 py-2 border border-slate-200 rounded-md text-sm`}
+                    className="w-full px-3 py-2 border border-warm-sand rounded-md text-sm text-deep-espresso focus:outline-none focus:ring-2 focus:ring-dusty-cocoa focus:border-transparent bg-transparent"
+                    style={{ minHeight: `${ADMIN_TEXTAREA_MIN_HEIGHT}px` }}
                     placeholder="Descripción de la propiedad"
                     value={newProperty.description}
                     onChange={(e) => setNewProperty({ ...newProperty, description: e.target.value })}
+                  />
+                </div>
+
+                <div className="col-span-2">
+                  <label className="text-sm font-medium text-deep-espresso mb-2 block">Imágenes</label>
+                  <ImageUploader 
+                    images={newPropertyImages}
+                    onImagesChange={setNewPropertyImages}
                   />
                 </div>
               </div>
@@ -174,6 +217,7 @@ export default function PropiedadesPage() {
                       bedrooms: ADMIN_DEFAULT_BEDROOMS,
                       bathrooms: ADMIN_DEFAULT_BATHROOMS,
                     })
+                    setNewPropertyImages([])
                   }}
                 >
                   Cancelar
@@ -189,14 +233,14 @@ export default function PropiedadesPage() {
       </Card>
 
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold text-slate-900">
+        <h2 className="text-xl font-semibold text-deep-espresso">
           Propiedades ({properties.length})
         </h2>
 
         {properties.length === 0 ? (
           <Card>
             <CardContent className="pt-6">
-              <p className="text-center text-slate-500">
+              <p className="text-center text-dusty-cocoa">
                 No hay propiedades registradas
               </p>
             </CardContent>
@@ -209,7 +253,7 @@ export default function PropiedadesPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-lg font-semibold text-slate-900">
+                        <h3 className="text-lg font-semibold text-deep-espresso">
                           {property.title}
                         </h3>
                         {!property.visible && (
@@ -218,11 +262,11 @@ export default function PropiedadesPage() {
                           </span>
                         )}
                       </div>
-                      <p className="text-sm text-slate-600 mt-1">
+                      <p className="text-sm text-dusty-cocoa mt-1">
                         {property.location}
                       </p>
-                      <div className="flex gap-4 mt-2 text-sm text-slate-600">
-                        <span>${property.price}/noche</span>
+                      <div className="flex gap-4 mt-2 text-sm text-dusty-cocoa">
+                        <span>{property.price}€/noche</span>
                         <span>{property.specs.bedrooms} habitaciones</span>
                         <span>{property.specs.guests} huéspedes</span>
                       </div>
@@ -243,7 +287,14 @@ export default function PropiedadesPage() {
                       </Button>
 
                       <Link href={`/admin/propiedades/${property.id}`}>
-                        <Button variant="ghost" size="icon">
+                        <Button 
+                          variant="ghost" 
+                          size="icon"
+                          className="transition-colors duration-200"
+                          style={{ color: TEXT_SECONDARY }}
+                          onMouseEnter={(e) => e.currentTarget.style.color = TEXT_PRIMARY}
+                          onMouseLeave={(e) => e.currentTarget.style.color = TEXT_SECONDARY}
+                        >
                           <Edit2 className="w-4 h-4" />
                         </Button>
                       </Link>

@@ -138,7 +138,7 @@ export default function PropertyCard({ id, title, images }: PropertyProps) {
   return (
     <div 
       ref={elementRef}
-      className={`w-full group transition-all ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+      className={`w-full group transition-all ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} bg-golden-glow`}
       style={{ transitionDuration: `${ANIMATION_FADE_DURATION}ms` }}
     >
       <h2 className="text-xl font-medium mb-8 text-slate-800 tracking-tight text-center">

@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "Propietarios",
+    "subtitle": "Maximiza los ingresos de tu propiedad en la Costa del Sol",
+    "image": "/images/hero-placeholder.jpg"
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "Gestión Integral",
+      "description": "Nos encargamos de todo: desde la publicación en múltiples plataformas hasta la limpieza y mantenimiento. Tú solo tienes que recibir tus ingresos mensuales mientras nosotros cuidamos de tu propiedad.",
+      "image": "",
+      "imagePosition": "right"
+    },
+    {
+      "id": "section-2",
+      "title": "Marketing Profesional",
+      "description": "Fotografía profesional, descripciones optimizadas y presencia en las principales plataformas de alquiler vacacional. Maximizamos la visibilidad de tu propiedad para asegurar la mejor ocupación.",
+      "image": "",
+      "imagePosition": "left"
+    },
+    {
+      "id": "section-3",
+      "title": "Precios Dinámicos",
+      "description": "Utilizamos tecnología de pricing dinámico para ajustar las tarifas según la demanda, temporada y eventos locales. Esto garantiza que obtengas el máximo rendimiento de tu inversión.",
+      "image": "",
+      "imagePosition": "right"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-1",
+      "title": "Sin Comisiones Ocultas",
+      "description": "Comisión transparente del 20% sobre reservas. Sin costes de alta ni permanencia.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-2",
+      "title": "Pagos Puntuales",
+      "description": "Recibe tus ingresos el día 5 de cada mes, con informes detallados de todas las reservas.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-3",
+      "title": "Seguro Incluido",
+      "description": "Todas las reservas incluyen seguro de daños y responsabilidad civil para tu tranquilidad.",
+      "image": "",
+      "link": ""
+    }
+  ],
+  "contact": {
+    "enabled": false,
+    "email": "",
+    "phone": "",
+    "formTitle": "",
+    "formDescription": ""
+  },
+  "seo": {
+    "metaTitle": "Propietarios - Gestión de Alquileres Vacacionales",
+    "metaDescription": "Maximiza los ingresos de tu propiedad en la Costa del Sol con nuestra gestión integral de alquileres vacacionales."
+  }
+}

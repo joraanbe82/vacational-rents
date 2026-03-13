@@ -1,7 +1,13 @@
+import AdminLayoutContent from '@/components/admin/AdminLayoutContent'
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return <>{children}</>
+  return (
+    <AdminLayoutContent>
+      {children}
+    </AdminLayoutContent>
+  )
 }

@@ -33,9 +33,21 @@ export const NAV_DOT_ACTIVE_WIDTH = 20;
 // Background Colors - Paleta Costa del Sol
 export const BG_GRADIENT_CENTER = '#FEFCF8';
 export const BG_GRADIENT_EDGE = '#F5F0E8';
-export const BG_ORB_TURQUOISE = '#A8C5C8';
 export const BG_ORB_TERRACOTA = '#D4A882';
 export const BG_ORB_GOLDEN = '#E8DCC8';
+
+// Text Colors - Paleta Costa del Sol
+export const TEXT_PRIMARY = '#544339';
+export const TEXT_SECONDARY = '#8A6C5F';
+
+// Navbar
+export const NAVBAR_SCROLL_THRESHOLD = 50;
+export const NAVBAR_BLUR_INITIAL = 8;
+export const NAVBAR_BLUR_SCROLLED = 12;
+
+// Constantes de moneda
+export const CURRENCY_SYMBOL = '€';
+export const CURRENCY_FORMAT = 'es-ES';
 
 // Animations
 export const ANIMATION_FADE_DURATION = 500;
@@ -67,3 +79,7 @@ export const DEFAULT_ID_TYPE = 'DNI';
 // Image Constants
 export const UNSPLASH_IMAGE_WIDTH = 2000;
 export const UNSPLASH_IMAGE_QUALITY = 80;
+
+// Validation Regex
+export const REGEX_EMAIL = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+export const REGEX_PHONE = /^\+?[0-9\s\-().]{7,20}$/;

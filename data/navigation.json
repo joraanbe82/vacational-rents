@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "id": "home",
+      "label": "Inicio",
+      "href": "/",
+      "visible": true,
+      "protected": true
+    },
+    {
+      "id": "guides",
+      "label": "Guías",
+      "href": "/guias",
+      "visible": true,
+      "protected": false
+    },
+    {
+      "id": "dayTrips",
+      "label": "Excursiones",
+      "href": "/excursiones",
+      "visible": true,
+      "protected": false
+    },
+    {
+      "id": "about",
+      "label": "Sobre Nosotros",
+      "href": "/sobre-nosotros",
+      "visible": true,
+      "protected": false
+    },
+    {
+      "id": "homeOwner",
+      "label": "Propietarios",
+      "href": "/propietarios",
+      "visible": true,
+      "protected": false
+    },
+    {
+      "id": "contact",
+      "label": "Contacto",
+      "href": "/contacto",
+      "visible": true,
+      "protected": false
+    }
+  ]
+}

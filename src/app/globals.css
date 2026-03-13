@@ -10,6 +10,13 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Costa del Sol Palette */
+  --color-dusty-cocoa: #8a6c5f;
+  --color-warm-sand: #bfa38a;
+  --color-soft-oatmeal: #e0d9cf;
+  --color-deep-espresso: #544339;
+  --color-golden-glow: #f5e9d3;
 }
 
 @layer utilities {

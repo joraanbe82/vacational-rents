@@ -4,18 +4,20 @@ import React, { useState } from 'react'
 import { DayPicker, DateRange } from 'react-day-picker'
 import { format, differenceInDays, startOfToday } from 'date-fns'
 import { useTranslations } from 'next-intl'
-import { BOOKING_SIMULATION_DELAY_MS, BOOKING_SUCCESS_RESET_DELAY_MS, BOOKING_CURRENCY } from '@/lib/constants'
+import { TEXT_PRIMARY, TEXT_SECONDARY, BG_ORB_TERRACOTA, BG_ORB_GOLDEN } from '@/lib/constants'
+import BookingRequestModal from '@/components/property/BookingRequestModal'
 import 'react-day-picker/dist/style.css'
 
 interface BookingCalendarProps {
   propertyId: string;
+  propertyName: string;
   pricePerNight: number;
 }
 
-export default function BookingCalendar({ propertyId, pricePerNight }: BookingCalendarProps) {
+export default function BookingCalendar({ propertyId, propertyName, pricePerNight }: BookingCalendarProps) {
   const t = useTranslations('calendar')
   const [range, setRange] = useState<DateRange | undefined>()
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const today = startOfToday()
 
   // Simulación de respuesta de API (Días ya reservados en Java)
@@ -31,35 +33,58 @@ export default function BookingCalendar({ propertyId, pricePerNight }: BookingCa
 
   const totalPrice = numberOfNights * pricePerNight
 
-  // Esta es la función que el equipo de Java "rellenará" después
-  const handleReservation = async () => {
+  const handleOpenModal = () => {
     if (!range?.from || !range?.to) return
+    setIsModalOpen(true)
+  }
 
-    setStatus('loading')
-
-    // OBJETO PREPARADO PARA EL BACKEND
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const bookingPayload = {
-      propertyId: propertyId,
-      startDate: format(range.from, 'yyyy-MM-dd'),
-      endDate: format(range.to, 'yyyy-MM-dd'),
-      totalNights: numberOfNights,
-      totalPrice: totalPrice,
-      currency: BOOKING_CURRENCY
-    }
-
-// Simulamos latencia de red
-    setTimeout(() => {
-      setStatus('success')
-      // Aquí podrías resetear el calendario tras unos segundos
-      setTimeout(() => setStatus('idle'), BOOKING_SUCCESS_RESET_DELAY_MS)
-    }, BOOKING_SIMULATION_DELAY_MS)
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setRange(undefined)
   }
 
   return (
     <div className="space-y-8">
       {/* Contenedor del Calendario */}
-      <div className="bg-white p-4 rounded-[2.5rem] border border-gray-100 shadow-sm inline-block w-full overflow-hidden">
+      <div className="bg-white p-4 rounded-[2.5rem] shadow-sm inline-block w-full overflow-hidden" style={{ borderColor: BG_ORB_GOLDEN, borderWidth: '1px' }}>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .rdp {
+              --rdp-accent-color: ${BG_ORB_TERRACOTA};
+              --rdp-background-color: ${BG_ORB_TERRACOTA}33;
+              --rdp-accent-color-dark: ${BG_ORB_TERRACOTA};
+              --rdp-background-color-dark: ${BG_ORB_TERRACOTA}33;
+            }
+            .rdp-day_selected {
+              background-color: ${BG_ORB_TERRACOTA} !important;
+              color: white !important;
+            }
+            .rdp-day_selected:hover {
+              background-color: ${BG_ORB_TERRACOTA} !important;
+            }
+            .rdp-day:not(.rdp-day_disabled):not(.rdp-day_selected):hover {
+              background-color: ${BG_ORB_GOLDEN} !important;
+              color: ${TEXT_PRIMARY} !important;
+            }
+            .rdp-day_today {
+              font-weight: bold;
+              border: 2px solid ${BG_ORB_TERRACOTA} !important;
+            }
+            .rdp-day_disabled {
+              opacity: 0.35;
+            }
+            .rdp-head_cell {
+              color: ${TEXT_SECONDARY};
+              font-weight: 600;
+            }
+            .rdp-caption {
+              color: ${TEXT_PRIMARY};
+            }
+            .rdp-day {
+              color: ${TEXT_PRIMARY};
+            }
+          `
+        }} />
         <DayPicker
           mode="range"
           selected={range}
@@ -72,9 +97,9 @@ export default function BookingCalendar({ propertyId, pricePerNight }: BookingCa
 
       {/* Resumen de Reserva (Solo aparece si hay fechas) */}
       <div className={`transition-all duration-500 ${range?.from ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-        <div className="bg-zinc-900 text-white p-8 rounded-[2.5rem] space-y-6">
+        <div className="p-8 rounded-[2.5rem] space-y-6" style={{ backgroundColor: TEXT_PRIMARY, color: '#ffffff' }}>
           <div className="flex justify-between items-center border-b border-white/10 pb-4">
-            <span className="text-sm font-light opacity-60 uppercase tracking-widest">{t('selectedPeriod')}</span>
+            <span className="text-sm font-light uppercase tracking-widest" style={{ opacity: 0.6 }}>{t('selectedPeriod')}</span>
             <span className="text-sm font-medium">
               {range?.from ? format(range.from, 'dd MMM') : ''} 
               {range?.to ? ` — ${format(range.to, 'dd MMM')}` : '...'}
@@ -84,21 +109,45 @@ export default function BookingCalendar({ propertyId, pricePerNight }: BookingCa
           <div className="flex justify-between items-end">
             <div>
               <span className="block text-3xl font-light">{numberOfNights} {numberOfNights === 1 ? t('night') : t('nights')}</span>
-              <span className="text-xs opacity-50">{pricePerNight} € {t('perNight')}</span>
+              <span className="text-xs" style={{ opacity: 0.5 }}>{pricePerNight} € {t('perNight')}</span>
             </div>
             <div className="text-right">
               <span className="block text-4xl font-medium">{totalPrice} €</span>
-              <span className="text-[10px] opacity-40 font-bold uppercase tracking-tighter">{t('totalPrice')}</span>
+              <span className="text-[10px] font-bold uppercase tracking-tighter" style={{ opacity: 0.4 }}>{t('totalPrice')}</span>
             </div>
           </div>
 
           <button 
-            onClick={handleReservation}
-            disabled={!range?.to || status === 'loading'}
-            className="w-full bg-white text-black py-5 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:bg-gray-200 transition-all active:scale-[0.97] disabled:bg-white/20 disabled:text-white/40"
+            onClick={handleOpenModal}
+            disabled={!range?.to}
+            className="w-full py-5 rounded-full text-xs uppercase tracking-[0.2em] font-bold transition-all active:scale-[0.97]"
+            style={{
+              backgroundColor: !range?.to ? `${BG_ORB_GOLDEN}33` : BG_ORB_TERRACOTA,
+              color: !range?.to ? `${TEXT_PRIMARY}66` : '#ffffff'
+            }}
+            onMouseEnter={(e) => {
+              if (range?.to) {
+                e.currentTarget.style.backgroundColor = BG_ORB_GOLDEN
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (range?.to) {
+                e.currentTarget.style.backgroundColor = BG_ORB_TERRACOTA
+              }
+            }}
           >
-            {status === 'loading' ? t('processing') : status === 'success' ? t('confirmed') : t('confirmReservation')}
+            {t('confirmReservation')}
           </button>
+
+          <BookingRequestModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            propertyId={propertyId}
+            propertyName={propertyName}
+            checkInDate={range?.from ? format(range.from, 'dd/MM/yyyy') : ''}
+            checkOutDate={range?.to ? format(range.to, 'dd/MM/yyyy') : ''}
+            nights={numberOfNights}
+          />
         </div>
       </div>
     </div>

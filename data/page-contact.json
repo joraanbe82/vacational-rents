@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes alguna pregunta? Estamos aquí para ayudarte",
+    "image": "/images/hero-placeholder.jpg"
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "Estamos para Ayudarte",
+      "description": "Nuestro equipo está disponible para resolver todas tus dudas sobre alquileres vacacionales en la Costa del Sol. Ya seas huésped o propietario, estamos aquí para ofrecerte el mejor servicio.",
+      "image": "",
+      "imagePosition": "left"
+    }
+  ],
+  "cards": [],
+  "contact": {
+    "enabled": true,
+    "email": "info@vacationalrents.com",
+    "phone": "+34 952 000 000",
+    "formTitle": "Envíanos un Mensaje",
+    "formDescription": "Completa el formulario y te responderemos en menos de 24 horas"
+  },
+  "seo": {
+    "metaTitle": "Contacto - Vacational Rents Costa del Sol",
+    "metaDescription": "Contacta con Vacational Rents para cualquier consulta sobre alquileres vacacionales en la Costa del Sol. Estamos aquí para ayudarte."
+  }
+}

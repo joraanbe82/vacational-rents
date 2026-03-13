@@ -1,44 +1,67 @@
 import { getTranslations } from 'next-intl/server';
-import PropertyCard from "@/components/PropertyCard";
-import { RENTAL_PROPERTIES } from "@/lib/data";
-import LanguageSwitcher from '@/components/LanguageSwitcher';
-import BackgroundLayer from '@/components/BackgroundLayer';
-import { ANIMATION_STAGGER_DELAY } from '@/lib/constants';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import SearchBar from '@/components/SearchBar';
+import { BG_GRADIENT_CENTER, TEXT_PRIMARY } from '@/lib/constants';
 
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'home' });
+  const tHero = await getTranslations({ locale, namespace: 'hero' });
   
   return (
-    <main className="min-h-screen bg-transparent text-gray-900 relative">
-      <BackgroundLayer />
-      <header className="py-20 px-6 text-center mb-8 relative">
-        <div className="absolute top-8 right-8">
-          <LanguageSwitcher />
-        </div>
-        <h1 className="text-xs uppercase tracking-[0.3em] font-semibold text-gray-400 mb-4">
-          {t('title')}
-        </h1>
-        <p className="text-4xl font-light tracking-tight text-black sm:text-5xl">
-          {t('subtitle')}
-        </p>
-      </header>
-
-      <div className="max-w-4xl mx-auto px-4 pb-32 space-y-32">
-        {RENTAL_PROPERTIES.map((property, index) => (
-          <div
-            key={property.id}
-            style={{ animationDelay: `${index * ANIMATION_STAGGER_DELAY}ms` }}
+    <>
+      <Navbar />
+      
+      <main className="min-h-screen" style={{ backgroundColor: BG_GRADIENT_CENTER, color: TEXT_PRIMARY }}>
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-bg.jpg')"
+            }}
           >
-            <PropertyCard
-              title={property.title}
-              images={property.images}
-              id={property.id}
-            />
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/50" />
           </div>
-        ))}
-      </div>
-    </main>
+
+          {/* Hero Content */}
+          <div className="relative z-10 w-full px-4 py-32 max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight leading-tight mx-auto">
+                {tHero('title')}
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 font-light tracking-wide mx-auto">
+                {tHero('subtitle')}
+              </p>
+            </div>
+
+            {/* SearchBar integrado */}
+            <SearchBar />
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg 
+              className="w-6 h-6 text-white" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+              />
+            </svg>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
   );
 }

@@ -1,7 +1,39 @@
 {
   "home": {
-    "title": "Séjours Sélectionnés",
-    "subtitle": "Architecture & Design Exceptionnels"
+    "title": "Le site cool de Raúl",
+    "subtitle": "Architecture et Design Exceptionnels"
+  },
+  "navbar": {
+    "home": "Accueil",
+    "guides": "Guides",
+    "dayTrips": "Excursions",
+    "about": "À propos",
+    "homeOwner": "Propriétaires",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Trouvez votre maison parfaite sur la Costa del Sol",
+    "subtitle": "Louez ou achetez votre propriété idéale"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "copyright": "Tous droits réservés",
+    "marbella": "Marbella, Costa del Sol, Espagne"
+  },
+  "search": {
+    "rent": "Louer",
+    "buy": "Acheter",
+    "destination": "Destination ou zone",
+    "checkIn": "Date d'arrivée",
+    "checkOut": "Date de départ",
+    "guests": "Invités",
+    "search": "Rechercher",
+    "guestCount": "{count} invité",
+    "guestCount_plural": "{count} invités"
   },
   "property": {
     "backToGallery": "Retour à la galerie",
@@ -25,7 +57,26 @@
     "totalPrice": "Prix Total",
     "confirmReservation": "Confirmer la Réservation",
     "processing": "Traitement en cours...",
-    "confirmed": "Confirmé !"
+    "confirmed": "Confirmé!"
+  },
+  "booking": {
+    "requestBooking": "Demander une Réservation",
+    "requestBookingSubtitle": "Pour confirmer votre réservation, nous devons vérifier la disponibilité. Entrez vos coordonnées et notre équipe confirmera votre réservation dans les 24 heures.",
+    "propertyName": "Propriété",
+    "checkInDate": "Arrivée",
+    "checkOutDate": "Départ",
+    "nights": "Nuits",
+    "emailLabel": "Email",
+    "phoneLabel": "Téléphone",
+    "cancel": "Annuler",
+    "sendRequest": "Envoyer la Demande",
+    "sending": "Envoi en cours...",
+    "requestSent": "Demande envoyée!",
+    "requestSentMessage": "Nous vous contacterons dans les 24 heures à l'email fourni pour confirmer votre réservation.",
+    "close": "Fermer",
+    "errorMessage": "Erreur lors de l'envoi de la demande. Veuillez réessayer.",
+    "emailError": "Entrez un email valide (ex: nom@domaine.fr)",
+    "phoneError": "Entrez un téléphone valide (ex: +33 6 00 00 00 00)"
   },
   "checkin": {
     "title": "Enregistrement d'arrivée",
@@ -58,6 +109,15 @@
     "birthDate": "Date de naissance",
     "nationality": "Nationalité",
     "email": "Email",
+    "phone": "Téléphone",
+    "phonePlaceholder": "+33 6 00 00 00 00",
+    "addressSection": "Adresse du voyageur",
+    "addAddress": "Ajouter une adresse",
+    "street": "Adresse",
+    "addressExtra": "Informations complémentaires (étage, bloc...)",
+    "country": "Pays",
+    "city": "Ville",
+    "postalCode": "Code postal",
     "saveForFuture": "Enregistrer les données pour les séjours futurs",
     "addGuest": "Ajouter un invité",
     "removeGuest": "Retirer un invité",
@@ -68,5 +128,9 @@
       "nie": "Carte d'identité étrangère",
       "drivingLicense": "Permis de conduire"
     }
+  },
+  "notFound": {
+    "message": "Page non trouvée",
+    "backToHome": "Retour à l'accueil"
   }
 }

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "name": "Mijas Costa",
+    "createdAt": "2026-03-10T11:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "La Cala",
+    "createdAt": "2026-03-10T11:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Marbella",
+    "createdAt": "2026-03-10T11:00:00.000Z"
+  }
+]

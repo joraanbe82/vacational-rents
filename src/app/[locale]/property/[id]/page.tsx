@@ -1,9 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { RENTAL_PROPERTIES } from '@/lib/data';
 import BookingCalendar from '@/components/BookingCalendar';
+import Navbar from '@/components/Navbar';
+import BackToGalleryLink from '@/components/BackToGalleryLink';
+import { TEXT_PRIMARY, TEXT_SECONDARY, BG_ORB_TERRACOTA, BG_ORB_GOLDEN } from '@/lib/constants';
 
 export default async function PropertyPage({ 
     params 
@@ -20,13 +22,13 @@ export default async function PropertyPage({
     const t = await getTranslations({ locale, namespace: 'property' });
 
     return (
-        <main className="min-h-screen bg-white">
-            <nav className="p-8 flex justify-between items-center max-w-[1400px] mx-auto">
-                <Link href={`/${locale}`} className="text-sm font-medium text-black hover:opacity-60 transition-opacity">
-                    ← {t('backToGallery')}
-                </Link>
-                <div className="h-px flex-1 bg-gray-100 mx-8 hidden md:block"></div>
-                <span className="text-[10px] uppercase tracking-[0.4em] text-gray-400">
+        <>
+            <Navbar />
+            <main className="min-h-screen bg-white pt-44">              
+                <nav className="p-8 flex justify-between items-center max-w-[1400px] mx-auto">
+                <BackToGalleryLink href={`/${locale}`} text={t('backToGallery')} />
+                <div className="h-px flex-1 mx-8 hidden md:block" style={{ backgroundColor: BG_ORB_GOLDEN }}></div>
+                <span className="text-[10px] uppercase tracking-[0.4em]" style={{ color: BG_ORB_TERRACOTA }}>
                     {t('stayDetails')}
                 </span>
             </nav>
@@ -50,50 +52,44 @@ export default async function PropertyPage({
                 <aside className="lg:col-span-5">
                     <div className="lg:sticky lg:top-12 space-y-12">
                         <header>
-                            <h1 className="text-5xl font-light tracking-tight text-black mb-4">
+                            <h1 className="text-5xl font-light tracking-tight mb-4" style={{ color: TEXT_PRIMARY }}>
                                 {property.title}
                             </h1>
-                            <p className="text-xl text-gray-500 font-light">{property.location}</p>
+                            <p className="text-xl font-light" style={{ color: TEXT_SECONDARY }}>{property.location}</p>
                         </header>
 
-                        <div className="grid grid-cols-3 border-y border-gray-100 py-8">
+                        <div className="grid grid-cols-3 border-y py-8" style={{ borderColor: BG_ORB_GOLDEN }}>
                             <div className="text-center">
-                                <span className="block text-2xl font-semibold text-black">{property.specs.guests}</span>
-                                <span className="text-[10px] uppercase tracking-widest text-gray-600">{t('guests')}</span>
+                                <span className="block text-2xl font-semibold" style={{ color: TEXT_PRIMARY }}>{property.specs.guests}</span>
+                                <span className="text-[10px] uppercase tracking-widest" style={{ color: BG_ORB_TERRACOTA }}>{t('guests')}</span>
                             </div>
-                            <div className="text-center border-x border-gray-100">
-                                <span className="block text-2xl font-semibold text-black">{property.specs.bedrooms}</span>
-                                <span className="text-[10px] uppercase tracking-widest text-gray-600">{t('bedrooms')}</span>
+                            <div className="text-center border-x" style={{ borderColor: BG_ORB_GOLDEN }}>
+                                <span className="block text-2xl font-semibold" style={{ color: TEXT_PRIMARY }}>{property.specs.bedrooms}</span>
+                                <span className="text-[10px] uppercase tracking-widest" style={{ color: BG_ORB_TERRACOTA }}>{t('bedrooms')}</span>
                             </div>
                             <div className="text-center">
-                                <span className="block text-2xl font-semibold text-black">{property.specs.bathrooms}</span>
-                                <span className="text-[10px] uppercase tracking-widest text-gray-600">{t('baths')}</span>
+                                <span className="block text-2xl font-semibold" style={{ color: TEXT_PRIMARY }}>{property.specs.bathrooms}</span>
+                                <span className="text-[10px] uppercase tracking-widest" style={{ color: BG_ORB_TERRACOTA }}>{t('baths')}</span>
                             </div>
                         </div>
 
                         <div className="space-y-6">
-                            <h3 className="text-xs uppercase tracking-widest font-semibold text-gray-900">{t('aboutSpace')}</h3>
-                            <p className="text-lg text-gray-600 leading-relaxed font-light">
+                            <h3 className="text-xs uppercase tracking-widest font-semibold" style={{ color: TEXT_PRIMARY }}>{t('aboutSpace')}</h3>
+                            <p className="text-lg leading-relaxed font-light" style={{ color: TEXT_SECONDARY }}>
                                 {property.description}
                             </p>
                         </div>
 
                         <div className="space-y-8">
-                            <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-gray-400">
+                            <h3 className="text-xs uppercase tracking-[0.2em] font-semibold" style={{ color: BG_ORB_TERRACOTA }}>
                                 {t('selectDates')}
                             </h3>
-                            <BookingCalendar pricePerNight={property.price} propertyId={property.id} />
-
-                            <button
-                                disabled={!property.price}
-                                className="w-full bg-black text-white py-6 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-zinc-800 transition-all active:scale-[0.98] disabled:bg-gray-200"
-                            >
-                                {t('confirmReservation')}
-                            </button>
+                            <BookingCalendar pricePerNight={property.price} propertyId={property.id} propertyName={property.title} />
                         </div>
                     </div>
                 </aside>
             </div>
-        </main>
+            </main>
+        </>
     );
 }

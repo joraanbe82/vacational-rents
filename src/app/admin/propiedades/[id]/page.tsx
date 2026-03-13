@@ -1,13 +1,18 @@
 'use client'
 
-import { useState, use } from 'react'
+import { useState, use, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { RENTAL_PROPERTIES } from '@/lib/data'
-import { ArrowLeft, Plus, Trash2, GripVertical } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
+import { TEXT_PRIMARY, TEXT_SECONDARY, BG_ORB_TERRACOTA, BG_ORB_GOLDEN, ADMIN_TEXTAREA_MIN_HEIGHT } from '@/lib/constants'
+import ImageUploader from '@/components/admin/ImageUploader'
+import { ImagePreview } from '@/types/ImageFile.types'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Municipality, MunicipalityResponse } from '@/types/api.types'
 
 interface PropertyWithVisibility {
   id: string
@@ -43,7 +48,33 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
           visible: true,
         }
   )
-  const [newImageUrl, setNewImageUrl] = useState('')
+  
+  const [propertyImages, setPropertyImages] = useState<ImagePreview[]>(
+    initialProperty?.images.map((url, index) => ({
+      id: `existing-${index}`,
+      url,
+      isExisting: true
+    })) || []
+  )
+
+  const [municipalities, setMunicipalities] = useState<Municipality[]>([])
+
+  useEffect(() => {
+    const loadMunicipalities = async () => {
+      try {
+        const res = await fetch('/api/municipalities')
+        const data: MunicipalityResponse = await res.json()
+        
+        if (data.success && Array.isArray(data.data)) {
+          setMunicipalities(data.data)
+        }
+      } catch {
+        // Silently fail
+      }
+    }
+
+    loadMunicipalities()
+  }, [])
 
   if (!initialProperty) {
     return (
@@ -82,32 +113,11 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
     }))
   }
 
-  const handleAddImage = () => {
-    if (!newImageUrl.trim()) return
+  const handleImagesChange = (newImages: ImagePreview[]) => {
+    setPropertyImages(newImages)
     setProperty(prev => ({
       ...prev,
-      images: [...prev.images, newImageUrl]
-    }))
-    setNewImageUrl('')
-  }
-
-  const handleRemoveImage = (index: number) => {
-    setProperty(prev => ({
-      ...prev,
-      images: prev.images.filter((_, i) => i !== index)
-    }))
-  }
-
-  const handleMoveImage = (index: number, direction: 'up' | 'down') => {
-    const newImages = [...property.images]
-    if (direction === 'up' && index > 0) {
-      [newImages[index], newImages[index - 1]] = [newImages[index - 1], newImages[index]]
-    } else if (direction === 'down' && index < newImages.length - 1) {
-      [newImages[index], newImages[index + 1]] = [newImages[index + 1], newImages[index]]
-    }
-    setProperty(prev => ({
-      ...prev,
-      images: newImages
+      images: newImages.map(img => img.url)
     }))
   }
 
@@ -126,8 +136,8 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
           </Button>
         </Link>
         <div>
-          <h1 className="text-3xl font-bold text-slate-900">Editar Propiedad</h1>
-          <p className="text-slate-600 mt-1">{property.title}</p>
+          <h1 className="text-3xl font-bold" style={{ color: TEXT_PRIMARY }}>Editar Propiedad</h1>
+          <p className="mt-1" style={{ color: TEXT_SECONDARY }}>{property.title}</p>
         </div>
       </div>
 
@@ -140,7 +150,7 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="text-sm font-medium">Título</label>
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Título</label>
                 <Input
                   value={property.title}
                   onChange={(e) => handleFieldChange('title', e.target.value)}
@@ -149,16 +159,26 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
               </div>
 
               <div>
-                <label className="text-sm font-medium">Ubicación</label>
-                <Input
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Municipio</label>
+                <Select
                   value={property.location}
-                  onChange={(e) => handleFieldChange('location', e.target.value)}
-                  className="mt-1"
-                />
+                  onValueChange={(value) => handleFieldChange('location', value)}
+                >
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Selecciona un municipio" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {municipalities.map((municipality) => (
+                      <SelectItem key={municipality.id} value={municipality.name}>
+                        {municipality.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div>
-                <label className="text-sm font-medium">Precio por Noche ($)</label>
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Precio por noche (€)</label>
                 <Input
                   type="number"
                   value={property.price}
@@ -168,11 +188,16 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
               </div>
 
               <div>
-                <label className="text-sm font-medium">Descripción</label>
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Descripción</label>
                 <textarea
                   value={property.description}
                   onChange={(e) => handleFieldChange('description', e.target.value)}
-                  className="w-full mt-1 p-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950"
+                  className="w-full mt-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:border-transparent"
+                  style={{ 
+                    minHeight: `${ADMIN_TEXTAREA_MIN_HEIGHT}px`,
+                    borderColor: BG_ORB_GOLDEN,
+                    color: TEXT_PRIMARY
+                  }}
                   rows={4}
                 />
               </div>
@@ -186,7 +211,7 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
             </CardHeader>
             <CardContent className="grid grid-cols-3 gap-4">
               <div>
-                <label className="text-sm font-medium">Huéspedes</label>
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Huéspedes</label>
                 <Input
                   type="number"
                   value={property.specs.guests}
@@ -196,7 +221,7 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
               </div>
 
               <div>
-                <label className="text-sm font-medium">Habitaciones</label>
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Habitaciones</label>
                 <Input
                   type="number"
                   value={property.specs.bedrooms}
@@ -206,7 +231,7 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
               </div>
 
               <div>
-                <label className="text-sm font-medium">Baños</label>
+                <label className="text-sm font-medium" style={{ color: TEXT_PRIMARY }}>Baños</label>
                 <Input
                   type="number"
                   value={property.specs.bathrooms}
@@ -225,67 +250,11 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
                 Añade o elimina fotos del carrusel
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex gap-2">
-                <Input
-                  placeholder="URL de la imagen"
-                  value={newImageUrl}
-                  onChange={(e) => setNewImageUrl(e.target.value)}
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter') handleAddImage()
-                  }}
-                />
-                <Button onClick={handleAddImage}>
-                  <Plus className="w-4 h-4 mr-2" />
-                  Añadir
-                </Button>
-              </div>
-
-              {property.images.length === 0 ? (
-                <p className="text-sm text-slate-500 text-center py-4">
-                  No hay imágenes añadidas
-                </p>
-              ) : (
-                <div className="space-y-2">
-                  {property.images.map((image, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-2 p-3 border border-slate-200 rounded-md"
-                    >
-                      <GripVertical className="w-4 h-4 text-slate-400" />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm text-slate-600 truncate">{image}</p>
-                      </div>
-                      <div className="flex gap-1">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleMoveImage(index, 'up')}
-                          disabled={index === 0}
-                        >
-                          ↑
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleMoveImage(index, 'down')}
-                          disabled={index === property.images.length - 1}
-                        >
-                          ↓
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handleRemoveImage(index)}
-                          className="text-red-600 hover:text-red-700"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+            <CardContent>
+              <ImageUploader 
+                images={propertyImages}
+                onImagesChange={handleImagesChange}
+              />
             </CardContent>
           </Card>
         </div>
@@ -297,11 +266,15 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
               <CardTitle>Acciones</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <Button onClick={handleSave} className="w-full">
+              <Button 
+                onClick={handleSave} 
+                className="w-full"
+                style={{ backgroundColor: BG_ORB_TERRACOTA, color: TEXT_PRIMARY }}
+              >
                 Guardar Cambios
               </Button>
               <Link href="/admin/propiedades" className="block">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full" style={{ color: TEXT_SECONDARY }}>
                   Cancelar
                 </Button>
               </Link>
@@ -314,19 +287,19 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
               <div>
-                <p className="text-slate-600">Título</p>
+                <p style={{ color: TEXT_SECONDARY }}>Título</p>
                 <p className="font-semibold">{property.title || '-'}</p>
               </div>
               <div>
-                <p className="text-slate-600">Ubicación</p>
+                <p style={{ color: TEXT_SECONDARY }}>Ubicación</p>
                 <p className="font-semibold">{property.location || '-'}</p>
               </div>
               <div>
-                <p className="text-slate-600">Precio</p>
-                <p className="font-semibold">${property.price}/noche</p>
+                <p style={{ color: TEXT_SECONDARY }}>Precio</p>
+                <p className="font-semibold">{property.price}€/noche</p>
               </div>
               <div>
-                <p className="text-slate-600">Imágenes</p>
+                <p style={{ color: TEXT_SECONDARY }}>Imágenes</p>
                 <p className="font-semibold">{property.images.length}</p>
               </div>
             </CardContent>

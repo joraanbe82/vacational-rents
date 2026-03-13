@@ -1,6 +1,6 @@
 'use client'
 
-import { BG_GRADIENT_CENTER, BG_GRADIENT_EDGE, BG_ORB_TURQUOISE, BG_ORB_TERRACOTA, BG_ORB_GOLDEN } from '@/lib/constants'
+import { BG_GRADIENT_CENTER, BG_GRADIENT_EDGE, BG_ORB_TERRACOTA, BG_ORB_GOLDEN } from '@/lib/constants'
 
 export default function BackgroundLayer() {
   return (
@@ -23,11 +23,11 @@ export default function BackgroundLayer() {
       />
 
       {/* Capa de orbes - Paleta Costa del Sol */}
-      {/* Orbe superior derecha: Azul turquesa mediterráneo */}
+      {/* Orbe superior derecha: Dorado cálido */}
       <div
         className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full opacity-[0.12]"
         style={{
-          background: BG_ORB_TURQUOISE,
+          background: BG_ORB_GOLDEN,
           filter: 'blur(120px)'
         }}
       />

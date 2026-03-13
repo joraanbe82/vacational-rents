@@ -1,0 +1,28 @@
+[
+  {
+    "id": "SOL-2026-UK16",
+    "propertyId": "1",
+    "propertyName": "Serene Lakeside Retreat",
+    "checkInDate": "18/03/2026",
+    "checkOutDate": "19/03/2026",
+    "nights": 1,
+    "email": "prueba@email.es",
+    "phone": "123123123",
+    "createdAt": "2026-03-13T10:36:14.828Z",
+    "status": "confirmed",
+    "checkinToken": "e76238fa-03c1-48dc-872d-429a36b5f1db",
+    "tokenExpiresAt": "2026-03-15T10:36:34.796Z"
+  },
+  {
+    "id": "SOL-2026-VTSS",
+    "propertyId": "1",
+    "propertyName": "Serene Lakeside Retreat",
+    "checkInDate": "17/03/2026",
+    "checkOutDate": "26/03/2026",
+    "nights": 9,
+    "email": "test@test.com",
+    "phone": "5465465465",
+    "createdAt": "2026-03-13T10:37:52.626Z",
+    "status": "rejected"
+  }
+]

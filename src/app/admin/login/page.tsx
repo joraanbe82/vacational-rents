@@ -36,44 +36,24 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(to bottom right, #1e293b, #0f172a)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '1rem'
-    }}>
-      <div style={{
-        width: '100%',
-        maxWidth: '28rem',
-        background: 'white',
-        borderRadius: '0.5rem',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-        padding: '2rem'
-      }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '0.5rem' }}>
+    <div className="min-h-screen bg-golden-glow flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+        <h1 className="text-2xl font-bold text-deep-espresso mb-2">
           Panel de Administración
         </h1>
-        <p style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '2rem' }}>
+        <p className="text-sm text-dusty-cocoa mb-8">
           Inicia sesión para acceder al panel de control
         </p>
 
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {error && (
-            <div style={{
-              background: '#fef2f2',
-              color: '#991b1b',
-              padding: '0.75rem',
-              borderRadius: '0.375rem',
-              fontSize: '0.875rem'
-            }}>
+            <div className="bg-red-50 text-red-800 p-3 rounded-md text-sm">
               {error}
             </div>
           )}
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <label htmlFor="email" style={{ fontSize: '0.875rem', fontWeight: '500', color: '#1e293b' }}>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="text-sm font-medium text-deep-espresso">
               Email
             </label>
             <input
@@ -84,23 +64,12 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               disabled={isLoading}
               required
-              style={{
-                width: '100%',
-                height: '2.5rem',
-                borderRadius: '0.375rem',
-                border: '1px solid #e2e8f0',
-                background: 'white',
-                padding: '0.5rem 0.75rem',
-                fontSize: '0.875rem',
-                color: '#1e293b',
-                outline: 'none',
-                boxSizing: 'border-box'
-              }}
+              className="w-full h-10 rounded-md border border-warm-sand bg-white px-3 text-sm text-deep-espresso focus:outline-none focus:ring-2 focus:ring-dusty-cocoa focus:border-transparent"
             />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <label htmlFor="password" style={{ fontSize: '0.875rem', fontWeight: '500', color: '#1e293b' }}>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="password" className="text-sm font-medium text-deep-espresso">
               Contraseña
             </label>
             <input
@@ -111,50 +80,22 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               disabled={isLoading}
               required
-              style={{
-                width: '100%',
-                height: '2.5rem',
-                borderRadius: '0.375rem',
-                border: '1px solid #e2e8f0',
-                background: 'white',
-                padding: '0.5rem 0.75rem',
-                fontSize: '0.875rem',
-                color: '#1e293b',
-                outline: 'none',
-                boxSizing: 'border-box'
-              }}
+              className="w-full h-10 rounded-md border border-warm-sand bg-white px-3 text-sm text-deep-espresso focus:outline-none focus:ring-2 focus:ring-dusty-cocoa focus:border-transparent"
             />
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            style={{
-              width: '100%',
-              height: '2.5rem',
-              background: '#1e293b',
-              color: 'white',
-              border: 'none',
-              borderRadius: '0.375rem',
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              cursor: isLoading ? 'not-allowed' : 'pointer',
-              opacity: isLoading ? 0.7 : 1
-            }}
+            className="w-full h-10 bg-dusty-cocoa hover:bg-warm-sand text-white rounded-md text-sm font-medium transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Iniciando sesión...' : 'Iniciar sesión'}
           </button>
 
-          <div style={{
-            padding: '1rem',
-            background: '#f1f5f9',
-            borderRadius: '0.375rem',
-            fontSize: '0.75rem',
-            color: '#475569'
-          }}>
-            <p style={{ fontWeight: '600', marginBottom: '0.25rem', margin: 0 }}>Credenciales de demostración:</p>
-            <p style={{ margin: '0.25rem 0' }}>Email: admin@vacational-rents.com</p>
-            <p style={{ margin: '0.25rem 0' }}>Contraseña: admin123</p>
+          <div className="p-4 bg-soft-oatmeal rounded-md text-xs text-dusty-cocoa">
+            <p className="font-semibold mb-1">Credenciales de demostración:</p>
+            <p className="my-1">Email: admin@vacational-rents.com</p>
+            <p className="my-1">Contraseña: admin123</p>
           </div>
         </form>
       </div>

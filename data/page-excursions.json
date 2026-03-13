@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "Excursiones desde la Costa del Sol",
+    "subtitle": "Vive experiencias únicas con nuestras excursiones organizadas por la región",
+    "image": "/images/hero-placeholder.jpg"
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "Granada y la Alhambra",
+      "description": "Visita uno de los monumentos más impresionantes de España. La Alhambra es un conjunto palaciego y fortaleza que te transportará a la época del Al-Ándalus. Incluye el Generalife y sus jardines.",
+      "image": "",
+      "imagePosition": "right"
+    },
+    {
+      "id": "section-2",
+      "title": "Ronda y su Puente Nuevo",
+      "description": "Descubre la ciudad de los toreros, con su espectacular Puente Nuevo sobre el Tajo de Ronda. Visita la plaza de toros más antigua de España y disfruta de las vistas panorámicas.",
+      "image": "",
+      "imagePosition": "left"
+    },
+    {
+      "id": "section-3",
+      "title": "Caminito del Rey",
+      "description": "Atrévete a recorrer uno de los senderos más espectaculares del mundo. Pasarelas suspendidas a 100 metros de altura sobre el desfiladero de los Gaitanes.",
+      "image": "",
+      "imagePosition": "right"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-1",
+      "title": "Excursión a Gibraltar",
+      "description": "Visita el Peñón de Gibraltar, observa los monos en libertad y disfruta de las vistas del Estrecho.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-2",
+      "title": "Tour de Vinos en Ronda",
+      "description": "Degusta los mejores vinos de la región en bodegas tradicionales con vistas espectaculares.",
+      "image": "",
+      "link": ""
+    },
+    {
+      "id": "card-3",
+      "title": "Safari en Selwo Aventura",
+      "description": "Vive una experiencia única en este parque de animales con especies de los cinco continentes.",
+      "image": "",
+      "link": ""
+    }
+  ],
+  "contact": {
+    "enabled": false,
+    "email": "",
+    "phone": "",
+    "formTitle": "",
+    "formDescription": ""
+  },
+  "seo": {
+    "metaTitle": "Excursiones desde la Costa del Sol - Vacational Rents",
+    "metaDescription": "Descubre las mejores excursiones desde la Costa del Sol: Granada, Ronda, Caminito del Rey y mucho más."
+  }
+}

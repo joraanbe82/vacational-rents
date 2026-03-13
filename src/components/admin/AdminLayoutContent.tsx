@@ -21,29 +21,10 @@ export default function AdminLayoutContent({
 
   if (status === 'loading') {
     return (
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        background: 'white'
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '3rem',
-            height: '3rem',
-            border: '2px solid #e2e8f0',
-            borderTop: '2px solid #1e293b',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite',
-            margin: '0 auto 1rem'
-          }}></div>
-          <p style={{ color: '#64748b' }}>Cargando...</p>
-          <style>{`
-            @keyframes spin {
-              to { transform: rotate(360deg); }
-            }
-          `}</style>
+      <div className="flex items-center justify-center min-h-screen bg-golden-glow">
+        <div className="text-center">
+          <div className="w-12 h-12 border-2 border-soft-oatmeal border-t-dusty-cocoa rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-dusty-cocoa">Cargando...</p>
         </div>
       </div>
     )
@@ -54,10 +35,10 @@ export default function AdminLayoutContent({
   }
 
   return (
-    <div style={{ display: 'flex', height: '100vh', background: '#f8fafc' }}>
+    <div className="flex h-screen bg-golden-glow">
       <AdminSidebar />
-      <main style={{ flex: 1, overflowY: 'auto' }}>
-        <div style={{ padding: '2rem' }}>
+      <main className="flex-1 overflow-y-auto">
+        <div className="p-8">
           {children}
         </div>
       </main>

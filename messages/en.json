@@ -3,6 +3,38 @@
     "title": "Curated Stays",
     "subtitle": "Exceptional Architecture & Design"
   },
+  "navbar": {
+    "home": "Home",
+    "guides": "Guides",
+    "dayTrips": "Day Trips",
+    "about": "About Us",
+    "homeOwner": "Home Owners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Find your perfect home on the Costa del Sol",
+    "subtitle": "Rent or buy your ideal property"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "copyright": "All rights reserved",
+    "marbella": "Marbella, Costa del Sol, Spain"
+  },
+  "search": {
+    "rent": "Rent",
+    "buy": "Buy",
+    "destination": "Destination or area",
+    "checkIn": "Check-in date",
+    "checkOut": "Check-out date",
+    "guests": "Guests",
+    "search": "Search",
+    "guestCount": "{count} guest",
+    "guestCount_plural": "{count} guests"
+  },
   "property": {
     "backToGallery": "Back to gallery",
     "stayDetails": "Stay Details",
@@ -27,8 +59,28 @@
     "processing": "Processing...",
     "confirmed": "Confirmed!"
   },
+  "booking": {
+    "requestBooking": "Request Booking",
+    "requestBookingSubtitle": "To confirm your reservation we need to verify availability. Enter your contact details and our team will confirm your booking within 24 hours.",
+    "propertyName": "Property",
+    "checkInDate": "Check-in",
+    "checkOutDate": "Check-out",
+    "nights": "Nights",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "cancel": "Cancel",
+    "sendRequest": "Send Request",
+    "sending": "Sending...",
+    "requestSent": "Request sent!",
+    "requestSentMessage": "We will contact you within 24 hours at the provided email to confirm your reservation.",
+    "close": "Close",
+    "errorMessage": "Error sending request. Please try again.",
+    "emailError": "Enter a valid email (e.g. name@domain.com)",
+    "phoneError": "Enter a valid phone (e.g. +44 7000 000000)"
+  },
   "checkin": {
-    "title": "Check-in Registration",
+    "title": "Check-in",
+    "description": "Check-in information",
     "subtitle": "Complete the form for all guests",
     "backToGallery": "Back to Gallery",
     "propertyId": "Property ID",
@@ -58,6 +110,15 @@
     "birthDate": "Birth Date",
     "nationality": "Nationality",
     "email": "Email",
+    "phone": "Phone",
+    "phonePlaceholder": "+44 7000 000000",
+    "addressSection": "Traveler's address",
+    "addAddress": "Add address",
+    "street": "Address",
+    "addressExtra": "Additional info (floor, block, door...)",
+    "country": "Country",
+    "city": "City",
+    "postalCode": "Postal code",
     "saveForFuture": "Save data for future stays",
     "addGuest": "Add Guest",
     "removeGuest": "Remove Guest",
@@ -68,5 +129,9 @@
       "nie": "Foreign ID",
       "drivingLicense": "Driving License"
     }
+  },
+  "notFound": {
+    "message": "Page not found",
+    "backToHome": "Back to home"
   }
 }

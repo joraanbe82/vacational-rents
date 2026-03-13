@@ -1,3 +1,11 @@
+export interface AddressData {
+  street: string;
+  extra: string;
+  country: string;
+  city: string;
+  postalCode: string;
+}
+
 export interface GuestData {
   firstName: string;
   lastName: string;
@@ -7,5 +15,7 @@ export interface GuestData {
   birthDate: string;
   nationality: string;
   email: string;
+  phone: string;
+  address: AddressData;
   saveData: boolean;
 }
